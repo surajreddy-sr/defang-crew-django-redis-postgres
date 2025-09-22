@@ -1,71 +1,71 @@
-# Crew.ai Django Sample
+LearnSphere AI Tutor 🎓
+A Personal AI Learning Companion for the Defang Hackathon.
 
-[![1-click-deploy](https://raw.githubusercontent.com/DefangLabs/defang-assets/main/Logos/Buttons/SVG/deploy-with-defang.svg)](https://portal.defang.dev/redirect?url=https%3A%2F%2Fgithub.com%2Fnew%3Ftemplate_name%3Dsample-crew-django-redis-postgres-template%26template_owner%3DDefangSamples)
+LearnSphere is an intelligent, interactive web application designed to act as a personal tutor. It leverages the power of AI agents through CrewAI to provide two distinct modes of learning assistance, all within a friendly Streamlit interface.
 
-This sample shows how to use Crew.ai with a Django application. It provides a simple web interface that allows users to input text and receive a summary of the text in real-time using Django Channels with a Redis broker. It uses Celery to handle the Crew.ai tasks in the background with Redis as a broker. It uses Postgres as the database for Django.
+✨ Features
+Dual-Agent System:
 
-## Prerequisites
+Expert Tutor: Ask any academic question and receive clear, detailed explanations, just like you would from a world-class professor.
 
-1. Download [Defang CLI](https://github.com/DefangLabs/defang)
-2. (Optional) If you are using [Defang BYOC](https://docs.defang.io/docs/concepts/defang-byoc) authenticate with your cloud provider account
-3. (Optional for local development) [Docker CLI](https://docs.docker.com/engine/install/)
+Resource Analyst: Provide a URL, and the AI will analyze the webpage's content to answer your questions based exclusively on that source material.
 
-## Development
+Interactive Chat Interface: A familiar, easy-to-use chat layout for a seamless user experience.
 
-To run the application locally, you can use the following command:
+Secure & Configurable: Uses a .env file to manage API keys, a best practice for security and deployment.
 
-```bash
-docker compose -f ./compose.local.yaml up --build
-```
+Humanized Personas: Agents are designed with unique backstories and roles to make the interaction more engaging and natural.
 
-## Configuration
+Robust URL Detection: Uses regular expressions to reliably detect links within your prompts.
 
-For this sample, you will need to provide the following [configuration](https://docs.defang.io/docs/concepts/configuration): 
+🚀 Tech Stack
+Backend: Python
 
-> Note that if you are using the 1-click deploy option, you can set these values as secrets in your GitHub repository and the action will automatically deploy them for you.
+AI Framework: CrewAI
 
-### `POSTGRES_PASSWORD`     
-The password for the Postgres database.
-```bash
-defang config set POSTGRES_PASSWORD
-```
+Web Framework: Streamlit
 
-### `SSL_MODE`
+Core Tools: crewai-tools for web search capabilities.
 
-The SSL mode for the Postgres database.
-```bash
-defang config set SSL_MODE
-```
+Configuration: python-dotenv
 
-### `DJANGO_SECRET_KEY`
+⚙ Setup and Installation
+Follow these steps to get your local environment set up and running.
 
-The secret key for the Django application.
-```bash
-defang config set DJANGO_SECRET_KEY
-```
+1. Clone the Repository
+git clone <your-repo-url>
+cd <your-repo-folder>
 
-## Deployment
+2. Create a Virtual Environment
+It's highly recommended to use a virtual environment to manage project dependencies.
 
-> [!NOTE]
-> Download [Defang CLI](https://github.com/DefangLabs/defang)
+# For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
 
-### Defang Playground
+# For Windows
+python -m venv venv
+venv\Scripts\activate
 
-Deploy your application to the Defang Playground by opening up your terminal and typing:
-```bash
-defang compose up
-```
+3. Install Dependencies
+Install all the necessary packages from the requirements.txt file.
 
-### BYOC
+pip install -r requirements.txt
 
-If you want to deploy to your own cloud account, you can [use Defang BYOC](https://docs.defang.io/docs/tutorials/deploy-to-your-cloud).
+4. Set Up Environment Variables
+You need an API key from Serper to enable the web search functionality for the tutor agent.
 
----
+Create a file named .env in the root of your project directory.
 
-Title: Crew.ai Django Sample
+Add your API key to this file:
 
-Short Description: A sample application that uses Crew.ai to summarize text in a background task, streamed to the user in real-time.
+SERPER_API_KEY="your_secret_api_key_here"
 
-Tags: Django, Celery, Redis, Postgres, AI, ML
+▶ Running the Application
+Once the setup is complete, you can run the Streamlit application with a single command:
 
-Languages: Python
+streamlit run app.py
+
+Your web browser should automatically open to the LearnSphere AI Tutor application!
+
+Built with ❤ for the Defang Hackathon.
